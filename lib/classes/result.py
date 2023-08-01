@@ -9,6 +9,7 @@ class Result:
         self.player = player
         self.game = game
         self.score = score
+        Result.all.append(self)
 
     @property
     def score(self):
@@ -38,7 +39,12 @@ class Result:
 
     @game.setter
     def game(self, game):
-        if isinstance(self, Game):
+        if isinstance(game, Game):
             self._game = game
         else:
             raise Exception("Game must be a Game object")
+
+    def __repr__(self):
+        return (
+            f"<Result | player: {self.player}, game: {self.game}, score: {self.score}>"
+        )

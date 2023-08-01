@@ -5,6 +5,7 @@ class Player:
         self.username = username
         self._results = []
         self._games_played = []
+        Player.all.append(self)
 
     @property
     def username(self):
@@ -20,12 +21,12 @@ class Player:
     def results(self, new_result=None):
         from classes.result import Result
 
-        pass
+        return [result for result in Result.all if result.player == self]
 
     def games_played(self, new_game=None):
         from classes.game import Game
 
-        pass
+        return [result.game for result in self.results() if result.player == self]
 
     def played_game(self, game):
         pass

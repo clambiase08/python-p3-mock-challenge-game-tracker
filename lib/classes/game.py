@@ -1,8 +1,11 @@
 class Game:
+    all = []
+
     def __init__(self, title):
         self.title = title
         self._results = []
         self._players = []
+        Game.all.append(self)
 
     @property
     def title(self):
