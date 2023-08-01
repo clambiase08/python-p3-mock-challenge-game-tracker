@@ -20,5 +20,6 @@ if __name__ == "__main__":
     result1 = Result(xtina, scattergories, 300)
     result2 = Result(sean, clue, 1000)
     result3 = Result(xtina, taboo, 40)
+    result4 = Result(xtina, taboo, 500)
 
     ipdb.set_trace()
