@@ -23,12 +23,12 @@ class Game:
     def results(self, new_result=None):
         from classes.result import Result
 
-        pass
+        return [result for result in Result.all if result.game == self]
 
     def players(self, new_player=None):
         from classes.player import Player
 
-        pass
+        return [result.player for result in self.results() if result.game == self]
 
     def average_score(self, player):
         pass
