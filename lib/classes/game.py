@@ -31,7 +31,12 @@ class Game:
         return [result.player for result in self.results() if result.game == self]
 
     def average_score(self, player):
-        pass
+        total_score = sum(
+            [result.score for result in self.results() if result.game == self]
+        )
+        num_scores = len(self.results())
+        average_score = total_score / num_scores
+        return average_score
 
     def __repr__(self):
         return f"<Game: {self.title}>"

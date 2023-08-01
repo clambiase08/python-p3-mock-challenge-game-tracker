@@ -48,7 +48,24 @@ class Player:
 
     @classmethod
     def highest_scored(cls, game):
-        pass
+        players = {}
+        for player in cls.all:
+            if player.played_game(game):
+                total_score = sum(
+                    [result.score for result in player.results() if result.game == game]
+                )
+                num_scores = player.num_times_played(game)
+
+                if num_scores > 0:
+                    average_score = total_score / num_scores
+                else:
+                    average_score = 0
+                players[player] = average_score
+
+        if not players:
+            return None
+
+        return max(players)
 
     def __repr__(self):
         return f"<Player: {self.username}>"
